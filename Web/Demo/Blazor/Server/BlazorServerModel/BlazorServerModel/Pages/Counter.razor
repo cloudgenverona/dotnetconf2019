@@ -1,0 +1,25 @@
+﻿@page "/counter/{StartCounter:int}"
+@*https://docs.microsoft.com/it-it/aspnet/core/blazor/routing?view=aspnetcore-3.0#route-constraints*@
+
+<h1>Counter</h1>
+
+<p>Current count: @currentCount</p>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+
+@code {
+    [Parameter]
+    public int StartCounter { get; set; }
+
+    int currentCount = 0;
+
+    protected override void OnInitialized()
+    {
+        currentCount = StartCounter;
+    }
+
+    void IncrementCount()
+    {
+        currentCount++;
+    }
+}
